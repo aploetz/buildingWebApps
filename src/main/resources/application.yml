@@ -1,0 +1,20 @@
+server:
+  port: 8080
+  error:
+    include-stacktrace: always
+
+spring:
+  application:
+    name: buildingWebApps
+  profiles:
+    active: default
+
+  data:
+    cassandra:
+      schema-action: create-if-not-exists
+      keyspace-name: ${CASSANDRA_DB_KEYSPACE}
+      contact-points: ${CASSANDRA_DB_ENDPOINTS}
+      local-datacenter: ${CASSANDRA_DB_DC}
+      port: 9042
+      username: ${CASSANDRA_DB_USERNAME}
+      password: ${CASSANDRA_DB_PASSWORD}
